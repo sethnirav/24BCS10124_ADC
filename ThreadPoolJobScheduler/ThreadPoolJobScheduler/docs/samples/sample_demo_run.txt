@@ -1,0 +1,82 @@
+
+==[ DEMO WORKLOAD ]==
+  crc-hello          Accepted: job #1 queued.
+  crc-config         Accepted: job #2 queued.
+  validate-staff     Accepted: job #3 queued.
+  validate-dirty     Accepted: job #4 queued.
+  scan-test-data     Accepted: job #5 queued.
+  scan-docs          Accepted: job #6 queued.
+  scan-missing       Accepted: job #7 queued.
+  primes-2M          Accepted: job #8 queued.
+  primes-500k        Accepted: job #9 queued.
+  sum-50M            Accepted: job #10 queued.
+  factorial-20       Accepted: job #11 queued.
+  fibonacci-90       Accepted: job #12 queued.
+  flaky-2-fails      Accepted: job #13 queued.
+  always-fails       Accepted: job #14 queued.
+  no-retry-fail      Accepted: job #15 queued.
+  factorial-99       Rejected (INVALID): factorial requires n <= 20
+
+  Waiting for the workload to finish...
+
+==[ DASHBOARD ]==
+  Uptime 0.0 s | Workers 4 | Utilization 38.3 % | Ageing 5000 ms | Default retries 3
+------------------------------------------------------------------------------------------
+  QUEUED 0    RUNNING 0    RETRYING 0    COMPLETED 12   FAILED 3   
+  Queue depth  HIGH 0/128   NORMAL 0/128   LOW 0/128
+  Submitted 15 | Rejected 1 | Retries 5 | Avg exec 1.430 ms | Avg wait 0.186 ms | 795.70 jobs/s
+------------------------------------------------------------------------------------------
+  History (persistent journal): 0 records from earlier sessions (0 completed, 0 failed)
+
+==[ ALL JOBS ]==
+   ID  Name               Type        Prio    Status     Retry     Exec(ms)  Result / Error
+------------------------------------------------------------------------------------------
+    1  crc-hello          CHECKSUM    NORMAL  COMPLETED    0/3        0.011  CRC32=0xB66DFA34 bytes=19 byte_sum=171
+    2  crc-config         CHECKSUM    LOW     COMPLETED    0/3        0.001  CRC32=0x030DE8A9 bytes=28 byte_sum=278
+    3  validate-staff     VALIDATION  HIGH    COMPLETED    0/3        0.015  records=3 valid=3 invalid=0 (all recor
+    4  validate-dirty     VALIDATION  NORMAL  COMPLETED    0/3        0.003  records=4 valid=1 invalid=3 first_inva
+    5  scan-test-data     FILE_PROC   NORMAL  COMPLETED    0/3        0.108  dir=test_data files=2 bytes=103 lines=
+    6  scan-docs          FILE_PROC   LOW     COMPLETED    0/3        0.059  dir=test_data/docs files=2 bytes=112 l
+    7  scan-missing       FILE_PROC   LOW     FAILED       1/1        0.207  file_proc: cannot open 'test_data/no_s
+    8  primes-2M          CALCULATION LOW     COMPLETED    0/3        8.136  prime_count(2000000) = 148933
+    9  primes-500k        CALCULATION HIGH    COMPLETED    0/3        2.123  prime_count(500000) = 41538
+   10  sum-50M            CALCULATION NORMAL  COMPLETED    0/3       17.940  sum(50000000) = 1250000025000000
+   11  factorial-20       CALCULATION HIGH    COMPLETED    0/3        0.001  factorial(20) = 2432902008176640000
+   12  fibonacci-90       CALCULATION NORMAL  COMPLETED    0/3        0.001  fibonacci(90) = 2880067194370816120
+   13  flaky-2-fails      FAIL_SIM    HIGH    COMPLETED    2/3        0.001  succeeded on attempt 3 after 2 simulat
+   14  always-fails       FAIL_SIM    NORMAL  FAILED       2/2        0.001  simulated permanent failure (attempt 3
+   15  no-retry-fail      FAIL_SIM    LOW     FAILED       0/0        0.001  simulated transient failure (attempt 1
+------------------------------------------------------------------------------------------
+  15 job(s)
+
+==[ WORKER POOL ]==
+Worker  State    Job       Processed     Busy(ms)     Util
+------------------------------------------------------------------------------------------
+     1  IDLE     -                 2       17.955   95.10%
+     2  IDLE     -                 6        0.220    1.17%
+     3  IDLE     -                 1        2.123   11.40%
+     4  IDLE     -                11        8.309   44.76%
+------------------------------------------------------------------------------------------
+  4 worker thread(s), created once and reused for every job.
+
+==[ PERFORMANCE METRICS ]==
+  Total jobs submitted     : 15
+  Submissions rejected     : 1
+  Total jobs completed     : 12
+  Total jobs failed        : 3
+  Jobs pending (in queues) : 0
+  Jobs running now         : 0
+  Total retry attempts     : 5
+  Attempts executed        : 20
+  Average execution time   : 1.430 ms
+  Minimum execution time   : 0.000 ms
+  Maximum execution time   : 17.940 ms
+  Average queue wait time  : 0.186 ms
+  Throughput               : 793.439 jobs/s over 0.0 s uptime
+  Worker utilization       : 38.21 % (busy time / alive time, 4 workers)
+
+==[ SHUTDOWN ]==
+  Waiting for queued and running jobs to finish...
+  Performance report written to reports/performance_report.txt
+  Final: 12 completed, 3 failed, 5 retries.
+  All worker threads joined and memory released. Goodbye.

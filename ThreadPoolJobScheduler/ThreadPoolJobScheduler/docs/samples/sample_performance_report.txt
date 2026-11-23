@@ -1,0 +1,22 @@
+==============================================================
+ Thread Pool Job Scheduler v1.0.0 - Performance Report
+ Generated: 2026-11-04 07:26:46
+==============================================================
+ Session uptime            : 0.019 s
+ Jobs submitted (accepted) : 15
+ Submissions rejected      : 1
+ Jobs completed            : 12
+ Jobs failed               : 3
+ Jobs pending / queued     : 0
+ Jobs running              : 0
+ Worker threads            : 4
+ Worker utilization        : 38.15 %
+ Retry attempts            : 5
+ Attempts executed         : 20
+ Avg execution time        : 1.430 ms
+ Min execution time        : 0.000 ms
+ Max execution time        : 17.940 ms
+ Avg queue waiting time    : 0.186 ms
+ Throughput                : 792.278 jobs/s (finished jobs / uptime)
+==============================================================
+ All values were measured with CLOCK_MONOTONIC during this run.

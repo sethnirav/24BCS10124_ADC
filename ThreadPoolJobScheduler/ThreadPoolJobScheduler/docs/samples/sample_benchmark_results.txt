@@ -1,0 +1,21 @@
+Thread Pool Job Scheduler - Benchmark (2026-11-04 07:26:47)
+Online CPUs: 16   (all values measured in this run)
+
+Workload: CPU-heavy - 64 x prime_count(2000000), pool workers = 16
+Approach             Done     Wall(ms)    AvgExec(ms)         Jobs/s      CPU(ms)      CtxSw
+------------------------------------------------------------------------------------------
+Sequential         64/64         573.49         8.9604          111.6        560.0          0
+Thread-per-job     64/64         119.88        58.5359          533.9       1580.0          0
+Thread pool        64/64         106.39        24.6982          601.6       1340.0          0
+
+Workload: many tiny jobs - 2000 x prime_count(2000), pool workers = 16
+Approach             Done     Wall(ms)    AvgExec(ms)         Jobs/s      CPU(ms)      CtxSw
+------------------------------------------------------------------------------------------
+Sequential       2000/2000         7.99         0.0039       250172.9         10.0          0
+Thread-per-job   2000/2000       351.13         0.0118         5695.9       1610.0          0
+Thread pool      2000/2000        20.30         0.0049        98517.5         20.0          0
+
+Notes: Wall = elapsed time incl. thread creation/teardown. CPU = user+sys time of
+the whole process during the run. AvgExec = mean time inside the task handler.
+With N cores, parallel approaches can be up to ~N times faster than sequential for
+CPU-bound jobs; for tiny jobs, per-job thread creation overhead dominates.

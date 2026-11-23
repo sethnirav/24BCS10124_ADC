@@ -1,0 +1,133 @@
+
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ SUBMIT NEW JOB ]==
+  Job name:   Task types:
+    1) Checksum            CRC-32 and byte sum of the supplied text
+    2) Data Validation     Validate 'name:age;...' records (age 0-150)
+    3) File Processing     Count files/bytes/lines and CRC-32 in test_data/
+    4) Calculation         sum / factorial / fibonacci / prime count
+    5) Failure Simulation  Fails N times to exercise the retry mechanism
+  Choose task type [1-5]:   Priority 1=HIGH 2=NORMAL 3=LOW [2]:   Text to checksum:   Max retries 0-10 [default 3]:   Accepted: job #1 queued.
+
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ DASHBOARD ]==
+  Uptime 0.0 s | Workers 4 | Utilization 0.0 % | Ageing 5000 ms | Default retries 3
+------------------------------------------------------------------------------------------
+  QUEUED 0    RUNNING 0    RETRYING 0    COMPLETED 1    FAILED 0   
+  Queue depth  HIGH 0/128   NORMAL 0/128   LOW 0/128
+  Submitted 1 | Rejected 0 | Retries 0 | Avg exec 0.007 ms | Avg wait 0.013 ms | 2405.78 jobs/s
+------------------------------------------------------------------------------------------
+  History (persistent journal): 15 records from earlier sessions (12 completed, 3 failed)
+  Previous session (saved 07:26:31): 12 completed, 3 failed, avg exec 1.783 ms
+
+Press Enter to continue...
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ SCHEDULER CONFIGURATION ]==
+  1) Worker thread count   (now 4)
+  2) Default retry limit   (now 3)
+  3) Priority ageing (ms)  (now 5000, 0 = off)
+  4) Back
+  Choice:   New worker count:   Resizing pool (busy workers finish their current job first)...
+  Pool now has 2 workers.
+  Saved to scheduler.conf
+
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ WORKER POOL ]==
+Worker  State    Job       Processed     Busy(ms)     Util
+------------------------------------------------------------------------------------------
+     1  IDLE     -                 0        0.000    0.00%
+     2  IDLE     -                 0        0.000    0.00%
+------------------------------------------------------------------------------------------
+  2 worker thread(s), created once and reused for every job.
+
+Press Enter to continue...
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ SEARCH JOB BY ID ]==
+  Job ID:   Job ID          : 1
+  Name            : my-checksum
+  Task type       : CHECKSUM (Checksum)
+  Priority        : HIGH
+  Status          : COMPLETED
+  Submitted       : 07:26:31
+  Started (last)  : 07:26:31
+  Finished        : 07:26:31
+  Last attempt    : 0.007 ms
+  Total exec time : 0.007 ms
+  Retries         : 0 of max 3
+  Result          : CRC32=0x352441C2 bytes=3 byte_sum=294
+
+Press Enter to continue...
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option: 
+==[ FAILED JOBS ]==
+  (no jobs)
+
+Press Enter to continue...
+==[ Thread Pool Job Scheduler v1.0.0 ]==
+   1) Dashboard               8) View Failed Jobs
+   2) Submit New Job          9) Worker Pool Information
+   3) View All Jobs          10) Performance Metrics
+   4) Search Job by ID       11) Scheduler Configuration
+   5) View Pending Jobs      12) Shutdown System
+   6) View Running Jobs      13) Load Demo Workload
+   7) View Completed Jobs    14) Export Performance Report
+
+  Select option:   1) Graceful: finish queued jobs  2) Immediate: cancel queued jobs [1]: 
+==[ SHUTDOWN ]==
+  Waiting for queued and running jobs to finish...
+  Performance report written to reports/performance_report.txt
+  Final: 1 completed, 0 failed, 0 retries.
+  All worker threads joined and memory released. Goodbye.
